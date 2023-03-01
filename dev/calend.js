@@ -97,8 +97,9 @@ let calend = function (par) {
                 display: grid; 
                 grid-template-columns: 120px 180px 1fr 150px;
                 padding-left: 20px;
-                padding-right: 10px;
+                padding-right: 20px;
                 margin-bottom: 60px;
+                width: calc(100% - 40px);
                 }
 
                 .grid2col {
