@@ -3,10 +3,55 @@ let calend = function (par) {
     let jsonfile = `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/CALENDARIO`; // Change the URL here (imperative)
     let code = "";
 
+    const tratadatas = function (str) {
+        let strB = str.replace(/-/g, "");
+        return strB.replace(/:/g, "");
+    }
+
     const dataemjs = function (str) {
         let datestring = str.replace("Z", "");
         let dia = new Date(datestring);
         return dia;
+    }
+
+    const substituiespacos = function (str) {
+        return str.replace(/ /g, "+");
+    }
+
+    const googleagendaurl = function (arr) {
+        return (
+            "https://www.google.com/calendar/render?action=TEMPLATE&text=" +
+            substituiespacos(arr.nome) +
+            "&dates=" +
+            tratadatas(arr.inicia) +
+            "/" +
+            tratadatas(arr.termina) +
+            "&details=" +
+            "<b>" +
+            substituiespacos(arr.tipoevento) +
+            "</b>" +
+            "<br>" +
+            "&sf=true&output=xml"
+        );
+    }
+
+    const formatadatascalendacad = function (str, str2) {
+        let diames1 = str.replace(/(\d{4})-(\d{2})-(\d{2})(.*)/, "$3/$2");
+        let diames2 = str2.replace(/(\d{4})-(\d{2})-(\d{2})(.*)/, "$3/$2");
+
+        let dataFormatado = "";
+
+        if (str != str2) {
+            dataFormatado =
+            "<b class='datacal'>" +
+            diames1 +
+            "</b> - <b class='datacal'>" +
+            diames2 +
+            "</b>";
+        } else {
+            dataFormatado = "<b class='datacal'>" + diames1 + "</b>";
+        }
+        return dataFormatado;
     }
 
     const adapta = function (arr) {
