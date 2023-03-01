@@ -85,6 +85,7 @@ let calend = function (par) {
             let aulafim = new Date("2100-01-02");
             let diaespecifico = new Date();
             let hoje = new Date();
+            let periodo = (hoje.getFullYear().toString) + ".1";
             let pattstart = new RegExp(/Início das aulas/i);
             let pattend = new RegExp(/Último dia de aulas/i);
             let diassemana = [0, 0, 0, 0, 0, 0, 0];
