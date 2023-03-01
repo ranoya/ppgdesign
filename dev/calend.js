@@ -96,6 +96,9 @@ let calend = function (par) {
                 .complistacalendario {
                 display: grid; 
                 grid-template-columns: 120px 180px 1fr 150px;
+                padding-left: 20px;
+                padding-right: 10px;
+                margin-bottom: 60px;
                 }
 
                 .grid2col {
@@ -111,37 +114,37 @@ let calend = function (par) {
                 .atividadeferiado {
                 background-color: blue;
                 padding: 5px; margin-bottom: 2px;
-                background-color: #b2ccf3;
+                background-color: #585858;
                 }
 
                 .atividadefacultativo {
                 padding: 5px;
                 margin-bottom: 2px;
-                background-color: #b9b2f3;
+                background-color: #787878;
                 }
 
                 .atividadematricula {
                 padding: 5px;
                 margin-bottom: 2px;
-                background-color: #eefad8;
+                background-color: #9a6a6a;
                 }
 
                 .atividadeletiva {
                 padding: 5px;
                 margin-bottom: 2px;
-                background-color: #c0f55e;
+                background-color: #4f8193;
                 }
 
                 .atividadedocumentacao {
                 padding: 5px;
                 margin-bottom: 2px;
-                background-color: #f5af5e;
+                background-color: #90785c;
                 }
 
                 .atividaderecesso {
                 padding: 5px;
                 margin-bottom: 2px;
-                background-color: #6eabf1;
+                background-color: #313131;
                 }
 
                 .datasletivas {
@@ -154,6 +157,7 @@ let calend = function (par) {
             <div class='complistacalendario'>`;
 
             let cor = "";
+            let estilo = "";
             let complemento = "";
             let passou = "";
             let aulainicio = new Date("2100-01-01");
@@ -176,6 +180,7 @@ let calend = function (par) {
 
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i].periodo.replace(/\.\d/i) == periodo.replace(/\.\d/i)) {
+                    estilo = "";
                     cor = "";
                     complemento = "";
                     passou = "";
@@ -195,8 +200,9 @@ let calend = function (par) {
                     }
 
                     if (arr[i].tipoevento == "Feriado") {
+                        estilo = "atividadeferiado";
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #b2ccf3;" +
+                            "" +
                             passou;
                         complemento = "FERIADO";
 
@@ -222,8 +228,9 @@ let calend = function (par) {
                     }
 
                     if (arr[i].tipoevento == "Ponto facultativo") {
+                        estilo = "atividadefacultativo";
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #b9b2f3;" +
+                            "" +
                             passou;
                         complemento = "PONTO FACULTATIVO";
 
@@ -235,46 +242,50 @@ let calend = function (par) {
                     }
 
                     if (arr[i].tipoevento == "Matrícula") {
+                        estilo = "atividadematricula"
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #eefad8;" +
+                            "" +
                             passou;
                     }
 
                     if (arr[i].tipoevento == "Recesso") {
+                        estilo = "atividaderecesso";
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #6eabf1;" +
+                            "" +
                             passou;
                     }
 
                     if (arr[i].tipoevento == "Atividades letivas") {
+                        estilo = "atividadeletiva";
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #c0f55e;" +
+                            "" +
                             passou;
                     }
 
                     if (arr[i].tipoevento == "Documentação") {
+                        estilo = "atividadedocumentacao";
                         cor =
-                            "padding: 5px; margin-bottom: 2px; background-color: #f5af5e;" +
+                            "" +
                             passou;
                     }
 
                     code +=
-                        `<div style='` +
+                        `<div class='` + estilo + `' style='` +
                         cor +
                         ` font-size: 16px;'>` +
                         formatadatascalendacad(arr[i].iniciasql, arr[i].terminasql) +
                         `</div>` +
-                        `<div class='botcalendario' style='` +
+                        `<div class='botcalendario ` + estilo + `' style='` +
                         cor +
                         `'><a href='` +
                         googleagendaurl(arr[i]) +
                         `' target='_blank'>Adiciona na agenda</a></div>` +
-                        `<div style='` +
+                        `<div class='` + estilo + `' style='` +
                         cor +
                         `'>` +
                         arr[i].nome +
                         `</div>` +
-                        `<div style='` +
+                        `<div class='` + estilo + `' style='` +
                         cor +
                         `font-family: Helvetica, Arial, sans-serif; font-weight: bolder; font-size: 10px; line-height: 25px; text-align: right;'>` +
                         complemento +
