@@ -14,6 +14,7 @@ let calend = function (par) {
         .then((jsondata) => {
 
             let arr = select(jsondata, multipatterncheck_exclude, par);
+            console.table(arr);
 
             code = `
             <style>
@@ -86,6 +87,7 @@ let calend = function (par) {
             let diaespecifico = new Date();
             let hoje = new Date();
             let periodo = (hoje.getFullYear().toString) + ".1";
+            console.log(periodo);
             let pattstart = new RegExp(/Início das aulas/i);
             let pattend = new RegExp(/Último dia de aulas/i);
             let diassemana = [0, 0, 0, 0, 0, 0, 0];
