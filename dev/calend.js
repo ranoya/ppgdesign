@@ -8,12 +8,41 @@ let calend = function (par) {
         let dia = new Date(datestring);
         return dia;
     }
+
+    const adapta = function (arr) {
+        let newarr = [];
+        let c = 0;
+
+        for (let k = 0; k < arr.length; k++) {
+            newarr[k] = {};
+            newarr[k] = arr[k];
+
+            newarr[k]["periodo"] = arr[k]["periodo"].replace(/,/g, ".");
+            newarr[k].inicia = arr[k]["inicia"].replace(
+            /(\d\d)\/(\d\d)\/(\d\d\d\d)/g,
+            "$3-$2-$1T03:00:00.000Z"
+            );
+            newarr[k].termina = arr[k]["termina"].replace(
+            /(\d\d)\/(\d\d)\/(\d\d\d\d)/g,
+            "$3-$2-$1T03:00:00.000Z"
+            );
+
+            if (arr[k].palavraschave === undefined) {
+            newarr[k].palavraschave = "";
+            }
+        }
+
+        return newarr;
+    }
+    
     
     fetch(jsonfile)
         .then((response) => response.json())
         .then((jsondata) => {
 
-            let arr = select(jsondata, multipatterncheck_exclude, par);
+            let ajustada = adapta(jsondata);
+
+            let arr = select(ajustada, multipatterncheck_exclude, par);
             console.table(arr);
 
             code = `
