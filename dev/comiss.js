@@ -33,7 +33,7 @@ let comiss = function (xpar) {
           
           let par = xpar;
         
-          if (xpar.match(/último/i)) {
+          if (xpar.match(/atual/i)) {
             
               let anos = unique(dados, "ano");
               console.table(anos);
@@ -110,7 +110,7 @@ let comiss = function (xpar) {
         
           let todosanos = unique(dados, "ano");
           
-          for (let k = 0; k < todosanos.length; k++) {
+          for (let k = todosanos.length - 1; k >= 0; k--) {
               xpto += `<a class='linksmod' href='javascript:setinput("/comiss ${todosanos[k]} ")'>${todosanos[k]}</a>`;
           }
 
