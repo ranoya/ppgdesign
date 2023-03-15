@@ -55,6 +55,7 @@ let comiss = function (xpar) {
                 font-size: 14px;
                 min-width: 1400px;
                 overflow-x: scroll;
+                padding-top: 35px;
             }
 
             .gradecomis div b {
