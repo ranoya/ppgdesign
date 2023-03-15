@@ -29,11 +29,18 @@ let comiss = function (par) {
     `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/Comissoes`
   )
     .then((response) => response.json())
-    .then((dados) => {
+      .then((dados) => {
+        
+        if (par == "último") {
+              par = dados[0].Ano;
+        }
+          
         let newarr = select(dados, multipatterncheck_exclude, par);
         let crit = "";
         let listas = [];
-        let xpto = `
+          let xpto = `
+
+        
       
         <style>
             .gradecomis {
@@ -43,6 +50,7 @@ let comiss = function (par) {
                 font-size: 14px;
                 min-width: 1400px;
                 overflow-x: scroll;
+                width: 100%;
             }
 
             .gradecomis div b {
@@ -68,16 +76,40 @@ let comiss = function (par) {
                 text-transform: uppercase;
                 color: #aaaaaa;
                 line-height: 12px;
+                font-weight: bolder;
+            }
+
+            .linksmod {
+                text-decoration: none;
+                font-size: 12px;
+                line-height: 20px;
+                color: var(--text-color, #a7caca);
+                padding: 4px 10px 4px 10px;
+                margin: -4px 0 -4px -10px;
+            }
+            .linksmod:hover {
+                background-color: var(--text-color, #a7caca);
+                color: var(--bg-color, #4a4a4a);
             }
         </style>
       
-        <div class="outputgrid gradecomis">
+        <div class="outputgrid"><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
+        
+          let todosanos = unique(dados, "Anos");
+          
+          for (let k = 0; k < todosanos.length; k++) {
+              xpto += `<a class='linksmod'href='javascript:setinput("/comiss ${todosanos[k]} ")'>${todosanos[k]}</a>`;
+          }
+          
+          
+        xpto += `
+        <div class="gradecomis">
         <div></div>
         <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização dos Seminários</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
 
       for (let i = 0; i < newarr.length; i++) {
           
-          xpto += `<div>${newarr[i].ano}</div>`;
+          xpto += `<div class='tabelanos'>${newarr[i].ano}</div>`;
 
           // Coordenação
 
@@ -94,7 +126,7 @@ let comiss = function (par) {
           
       }
 
-      xpto += `</div>`;
+      xpto += `</div></div>`;
       present(xpto);
     });
 };
