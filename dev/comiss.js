@@ -93,13 +93,15 @@ let comiss = function (par) {
             }
         </style>
       
-        <div class="outputgrid"><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
+        <div class="outputgrid"><div style='width: 100%; margin-bottom: 24px;'><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
         
-          let todosanos = unique(dados, "Anos");
+          let todosanos = unique(dados, "ano");
           
           for (let k = 0; k < todosanos.length; k++) {
-              xpto += `<a class='linksmod'href='javascript:setinput("/comiss ${todosanos[k]} ")'>${todosanos[k]}</a>`;
+              xpto += `<a class='linksmod' href='javascript:setinput("/comiss ${todosanos[k]} ")'>${todosanos[k]}</a>`;
           }
+
+          xpto += '</div>';
           
           
         xpto += `
