@@ -84,10 +84,15 @@ let comiss = function (xpar) {
             }
 
             .comissmenu {
-                width: calc(100vw - 50px);
+                width: calc(100vw - 30px);
                 margin-left: 20px;
                 margin-right: 20px;
                 margin-bottom: 24px;
+                position: fixed;
+                text-align: right;
+                background-color: var(--bg-color);
+                margin-top: -6px;
+                height: 36px;
             }
 
             .linksmod {
