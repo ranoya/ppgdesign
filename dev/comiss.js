@@ -23,19 +23,23 @@ let montalista = function (arr, crit) {
 
 
 
-let comiss = function (par) {
+let comiss = function (xpar) {
 
   fetch(
     `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/Comissoes`
   )
     .then((response) => response.json())
       .then((dados) => {
+          
+          let par = xpar;
         
-          if (par == "último") {
+          if (xpar.match(/último/i)) {
             
               let anos = unique(dados, "ano");
+              console.table(anos);
               par = Math.max(...anos);
-              
+              console.log(par);
+
         }
           
         let newarr = select(dados, multipatterncheck_exclude, par);
