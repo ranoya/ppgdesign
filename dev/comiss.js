@@ -31,8 +31,11 @@ let comiss = function (par) {
     .then((response) => response.json())
       .then((dados) => {
         
-        if (par == "último") {
-              par = dados[0].ano;
+          if (par == "último") {
+            
+              let anos = unique(dados, "ano");
+              par = Math.max(...anos);
+              
         }
           
         let newarr = select(dados, multipatterncheck_exclude, par);
