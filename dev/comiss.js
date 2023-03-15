@@ -4,11 +4,15 @@ let montalista = function (arr, crit) {
 
     if (typeof arr["Líder " + crit] != "undefined" && arr["Líder " + crit] != "") {
               code += `<b>${arr["Líder " + crit]}</b><br>`;
-          }
-    let listas = arr[crit].split(",");
-    for (let i = 0; i < listas.length; i++) {
-              code += listas[i].trim() + "<br>";
-          }
+    }
+    if (arr[crit].match(/\,/g)) {
+        let listas = arr[crit].split(",");
+        for (let i = 0; i < listas.length; i++) {
+            code += listas[i].trim() + "<br>";
+        }
+    } else {
+        code += listas[i] + "<br>";
+    }
     code += `</div>`;
     return code;
     
