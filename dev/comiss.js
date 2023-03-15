@@ -38,14 +38,23 @@ let comiss = function (par) {
         <style>
             .gradecomis {
                 display: grid;
-                gap: 8px 16px;
+                gap: 16px 16px;
                 grid-template-columns: [init] 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [fim];
+                font-size: 14px;
+                min-width: 1400px;
+                overflow-x: scroll;
+            }
+
+            .gradecomis div b {
+                color: var(--color-hover, #34f8d1);
             }
 
             .tablehead {
                 font-size: 10px;
                 text-transform: uppercase;
                 color: #aaaaaa;
+                align-self: end;
+                line-height: 12px;
             }
 
             .tablelinha {
@@ -53,11 +62,18 @@ let comiss = function (par) {
                 height: 1px;
                 grid-column: init / fim;
             }
+
+            .tabelanos {
+                font-size: 10px;
+                text-transform: uppercase;
+                color: #aaaaaa;
+                line-height: 12px;
+            }
         </style>
       
         <div class="outputgrid gradecomis">
         <div></div>
-        <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização do Seminário PPGDesign</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
+        <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização dos Seminários</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
 
       for (let i = 0; i < newarr.length; i++) {
           
