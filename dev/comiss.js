@@ -79,6 +79,12 @@ let comiss = function (par) {
                 font-weight: bolder;
             }
 
+            .comissmenu {
+                width: calc(100vw - 50px);
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
             .linksmod {
                 text-decoration: none;
                 font-size: 12px;
@@ -93,7 +99,7 @@ let comiss = function (par) {
             }
         </style>
       
-        <div class="outputgrid"><div style='width: 100%; margin-bottom: 24px;'><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
+        <div class="comissmenu"><div style='width: 100%; margin-bottom: 24px;'><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
         
           let todosanos = unique(dados, "ano");
           
@@ -105,7 +111,7 @@ let comiss = function (par) {
           
           
         xpto += `
-        <div class="gradecomis">
+        <div class="outputgrid gradecomis">
         <div></div>
         <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização dos Seminários</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
 
