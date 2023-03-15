@@ -83,6 +83,7 @@ let comiss = function (par) {
                 width: calc(100vw - 50px);
                 margin-left: 20px;
                 margin-right: 20px;
+                margin-bottom: 24px;
             }
 
             .linksmod {
@@ -99,7 +100,7 @@ let comiss = function (par) {
             }
         </style>
       
-        <div class="comissmenu"><div style='width: 100%; margin-bottom: 24px;'><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
+        <div class="comissmenu"><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
         
           let todosanos = unique(dados, "ano");
           
