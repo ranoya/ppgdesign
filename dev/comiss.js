@@ -32,7 +32,7 @@ let comiss = function (par) {
       .then((dados) => {
         
         if (par == "último") {
-              par = dados[0].Ano;
+              par = dados[0].ano;
         }
           
         let newarr = select(dados, multipatterncheck_exclude, par);
@@ -50,7 +50,6 @@ let comiss = function (par) {
                 font-size: 14px;
                 min-width: 1400px;
                 overflow-x: scroll;
-                width: 100%;
             }
 
             .gradecomis div b {
