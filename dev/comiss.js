@@ -36,9 +36,7 @@ let comiss = function (xpar) {
           if (xpar.match(/atual/i)) {
             
               let anos = unique(dados, "ano");
-              console.table(anos);
-              par = Math.max(...anos);
-              console.log(par);
+              par = Math.max(...anos).toString();
 
         }
           
