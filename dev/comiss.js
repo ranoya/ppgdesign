@@ -22,14 +22,12 @@ let montalista = function (arr, crit) {
 }
 
 
+let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=665266084`;
+
 
 let comiss = function (xpar) {
 
-  fetch(
-    `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/Comissoes`
-  )
-    .then((response) => response.json())
-      .then((dados) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function(dados) {
           
           let par = xpar;
         

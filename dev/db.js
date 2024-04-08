@@ -1,13 +1,12 @@
+let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=1411182170`;
+
 let db = function (par) {
 
   let linkkey = `link`;
   let namekey = `titulo`;
 
-  fetch(
-    `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/dB`
-  )
-    .then((response) => response.json())
-    .then((dados) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
+    
       let newarr = select(dados, multipatterncheck_exclude, par);
       let xpto = `<div class="outputgrid">`;
 

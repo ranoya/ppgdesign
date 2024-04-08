@@ -1,6 +1,6 @@
 let calend = function (par) {
 
-    let jsonfile = `https://opensheet.elk.sh/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/CALENDARIO`; // Change the URL here (imperative)
+    let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=0`; // Change the URL here (imperative)
     let code = "";
 
     const tratadatas = function (str) {
@@ -81,9 +81,7 @@ let calend = function (par) {
     }
     
     
-    fetch(jsonfile)
-        .then((response) => response.json())
-        .then((jsondata) => {
+    getcsvdata(GoogleSheetCsvURL(jsonfile), function(jsondata) {
 
             let ajustada = adapta(jsondata);
 
