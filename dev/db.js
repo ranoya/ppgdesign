@@ -1,6 +1,7 @@
-let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=1411182170`;
 
 let db = function (par) {
+
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=1411182170`;
 
   let linkkey = `link`;
   let namekey = `titulo`;
